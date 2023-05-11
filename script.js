@@ -21,4 +21,10 @@ function init() {
 		count++;
 		localStorage.setItem('count', count);
 	}
+
+	window.addEventListener('storage', function(e) {  
+		if (e.key !== "count") {
+			savedTextList.innerHTML = savedTextList.innerHTML + '<li>' + localStorage.getItem(e.key) + '</li>';
+		}
+	});
 }
